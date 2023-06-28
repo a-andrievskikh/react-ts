@@ -12,36 +12,3 @@ code {
   monospace;
 }
 
-
-.default {
-  width: 30px;
-  height: 10px;
-}
-
-.green {
-  width: 30px;
-  height: 10px;
-  background-color: green;
-}
-
-.red {
-  width: 30px;
-  height: 10px;
-  background-color: red;
-}
-
-.circleOn {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50px;
-  background-color: green;
-}
-
-.circleOff {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50px;
-  background-color: red;
-}

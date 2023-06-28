@@ -3,12 +3,27 @@ import './App.css'
 import { Accordion } from './components/Accordion/Accordion'
 import { Rating } from './components/Rating/Rating'
 import { OnOff } from './components/OnOff/OnOff'
+import { UncontrolledAccordion } from './components/UncontrolledAccordion/UncontrolledAccordion'
+import { UncontrolledRating } from './components/UncontrolledRating/UncontrolledRating'
 
 export const App = () => {
   console.log('App Rendering!')
   return (
     <div className="width margin">
-      <Accordion titleValue={'Menu'} collapsed={true} />
+      <OnOff />
+      <OnOff />
+      <OnOff />
+      <UncontrolledAccordion titleValue={'Menu'} />
+      <UncontrolledAccordion titleValue={'Users'} />
+      <hr />
+      <UncontrolledRating />
+      <UncontrolledRating />
+      <UncontrolledRating />
+      <UncontrolledRating />
+      <UncontrolledRating />
+      <UncontrolledRating />
+
+      {/*<Accordion titleValue={'Menu'} collapsed={true} />
       <Accordion titleValue={'Users'} collapsed={false} />
 
       <Rating value={0} />
@@ -16,10 +31,8 @@ export const App = () => {
       <Rating value={2} />
       <Rating value={3} />
       <Rating value={4} />
-      <Rating value={5} />
+      <Rating value={5} />*/}
 
-      <OnOff isOn={true} />
-      <OnOff isOn={false} />
     </div>
   )
 }
