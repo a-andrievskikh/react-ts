@@ -2,32 +2,38 @@ import React from 'react'
 
 type AccordionPropsType = {
   titleValue: string
-  collapsed: boolean
+  accordionCollapsed: boolean
+  setAccordionCollapsed: (accordionCollapsed: boolean) => void
 }
 
 export const Accordion = (props: AccordionPropsType) => {
-  debugger;
-  console.log('Accordion Rendering!')
+
   return (
     <div>
-      <AccordionTitle title={props.titleValue} />
-      {!props.collapsed && <AccordionBody />}
+      <AccordionTitle title={props.titleValue}
+                      accordionCollapsed={props.accordionCollapsed}
+                      onClick={props.setAccordionCollapsed} />
+      <button onClick={() => props.setAccordionCollapsed(!props.accordionCollapsed)}>Toggle List</button>
+      {!props.accordionCollapsed && <AccordionBody />}
     </div>
   )
 }
 
 type AccordionTitlePropsType = {
   title: string
+  accordionCollapsed: boolean
+  onClick: (accordionCollapsed: boolean) => void
 }
 
 const AccordionTitle = (props: AccordionTitlePropsType) => {
-  debugger;
-  console.log('AccordionTitle Rendering!')
-  return <h3>{props.title}</h3>
+  return (
+    <h3 onClick={() => props.onClick(!props.accordionCollapsed)}>
+      {props.title}
+    </h3>
+  )
 }
 
 const AccordionBody = () => {
-  console.log('AccordionBody Rendering!')
   return (
     <ul>
       <li>1</li>
