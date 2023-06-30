@@ -34,6 +34,7 @@ export const OnOff = (props: OnOffPropsType) => {
       <button style={{ ...buttonStyle, ...onColor }} onClick={() => props.setOn(true)}>On</button>
       <button style={{ ...buttonStyle, ...offColor }} onClick={() => props.setOn(false)}>Off</button>
       <div style={indicatorStyle}></div>
+      <span>controlled</span>
     </div>
   )
 }

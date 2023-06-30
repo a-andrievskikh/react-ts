@@ -16,6 +16,7 @@ export const App = () => {
     <div className="width margin">
 
       <Accordion titleValue={'Users'}
+        // onClick={() => setAccordionCollapsed(!accordionCollapsed)}
                  accordionCollapsed={accordionCollapsed}
                  setAccordionCollapsed={setAccordionCollapsed}
       />
@@ -27,17 +28,8 @@ export const App = () => {
 
       <hr />
       <OnOff on={on} setOn={setOn} />
-      <UncontrolledOnOff />
+      <UncontrolledOnOff onChange={setOn} />{on + ''}
 
     </div>
   )
-}
-
-type PageTitlePropsType = {
-  title: string
-}
-
-const PageTitle = (props: PageTitlePropsType) => {
-  console.log('AppTitle Rendering!')
-  return <h1>{props.title}</h1>
 }
