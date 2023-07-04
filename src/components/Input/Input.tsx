@@ -1,12 +1,15 @@
-import React, { FC } from 'react'
+import React, { ChangeEvent, FC } from 'react'
 
 export type InputPropsType = {
   value: string
-  onChange?: (value: string) => void
+  onChange: (value: string) => void
 }
 
 export const Input: FC<InputPropsType> = (props) => {
+  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => props.onChange(e.currentTarget.value)
   return (
-    <input value={props.value} />
+    <input value={props.value}
+           onChange={onChangeHandler}
+    />
   )
 }

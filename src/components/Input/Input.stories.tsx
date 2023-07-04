@@ -6,12 +6,12 @@ export default {
   component: Input,
 }
 
-export const ControlledModeWithTrackingValue = () => {
-
+export const ControlledInput = () => {
+  const [value, setValue] = useState<string>('')
   return (
-    <Input value={'Controlled'} />
+    <Input value={value} onChange={setValue} />
   )
 }
 
 
-export const ControlledModeWithFixedValue = () => <Input value={'Controlled'} />
+// export const ControlledModeWithFixedValue = () => <Input value={'Controlled'} />
