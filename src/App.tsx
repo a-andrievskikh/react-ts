@@ -24,7 +24,7 @@ export const App = () => {
       <hr />
 
       <Rating value={ratingValue} onClick={setRatingValue} />
-      <UncontrolledRating />
+      <UncontrolledRating onChange={() => {}} />
 
       <hr />
       <OnOff on={on} setOn={setOn} />
