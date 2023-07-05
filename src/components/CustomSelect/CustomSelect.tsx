@@ -12,9 +12,6 @@ export type CustomSelectPropsType = {
 }
 
 export const CustomSelect: FC<CustomSelectPropsType> = (props) => {
-  /*const onChangeHandler = (e: FormEventHandler<HTMLDivElement>) => {
-    props.onChange(e.)
-  }*/
   const [collapsed, setCollapsed] = useState<boolean>(true)
   const onClickHandler = () => setCollapsed(!collapsed)
   return (

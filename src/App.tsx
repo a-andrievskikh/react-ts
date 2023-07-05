@@ -12,6 +12,7 @@ import { UncontrolledOnOff } from './components/UncontrolledOnOff/UncontrolledOn
 import { UncontrolledInput } from './components/UncontrolledInput/UncontrolledInput'
 import { action } from '@storybook/addon-actions'
 import { CustomSelect } from './components/CustomSelect/CustomSelect'
+import { CustomSelectStudy } from './components/CustomSelectStudy/CustomSelectStudy'
 
 export const App = () => {
   const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
@@ -21,6 +22,7 @@ export const App = () => {
   const [isChecked, setIsChecked] = useState<boolean>(true)
   const [selectValue, setSelectValue] = useState<string | undefined>(undefined)
   const [customSelectValue, setCustomSelectValue] = useState<string>('Select')
+  const [customSelectStudyValue, setCustomSelectStudyValue] = useState<string>('Select')
 
   const users = [
     { title: 'Mike', value: 1 },
@@ -38,9 +40,17 @@ export const App = () => {
     { title: 'Tokyo', value: 4 },
   ]
 
+  const cities2 = [
+    { title: 'Moscow', value: '1' },
+    { title: 'London', value: '2' },
+    { title: 'New York', value: '3' },
+    { title: 'Tokyo', value: '4' },
+  ]
+
   return (
     <div className="width margin">
 
+      <hr />
       <CustomSelect cities={cities}
                     value={customSelectValue}
                     onClick={setCustomSelectValue}
@@ -72,6 +82,12 @@ export const App = () => {
       <hr />
       <OnOff on={on} setOn={setOn} />
       <UncontrolledOnOff onChange={setOn} />{on + ''}
+
+      <CustomSelectStudy value={customSelectStudyValue}
+                         onChange={setCustomSelectStudyValue}
+                         cities={cities2}
+
+      />
 
     </div>
   )
