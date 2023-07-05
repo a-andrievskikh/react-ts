@@ -25,7 +25,6 @@ type AccordionTitlePropsType = {
 }
 
 const AccordionTitle = (props: AccordionTitlePropsType) => {
-  debugger;
   console.log('AccordionTitle Rendering!')
   return (
     <h3 onClick={() => props.onClick()}>

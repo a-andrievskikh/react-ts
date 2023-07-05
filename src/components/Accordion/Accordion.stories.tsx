@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { action } from '@storybook/addon-actions'
-import { Accordion, AccordionPropsType } from './Accordion'
-import { Story } from '@storybook/react'
+import { Accordion } from './Accordion'
 
 export default {
   title: 'Accordion Stories',
@@ -9,25 +8,35 @@ export default {
 }
 
 const callBack = action('collapsed or not collapsed')
+const onClickCallBack = action('some item was clicked')
 
-const Template: Story<AccordionPropsType> = (args: AccordionPropsType) => <Accordion {...args} />
+const users = [
+  { title: 'Mike', value: 1 },
+  { title: 'Bob', value: 2 },
+  { title: 'John', value: 3 },
+  { title: 'Mira', value: 4 },
+]
 
-const propsCallback = {
-  setAccordionCollapsed: callBack,
+export const CollapsedMode = () => {
+  return (
+    <Accordion titleValue={'Menu'}
+               accordionCollapsed={true}
+               setAccordionCollapsed={callBack}
+               items={[]}
+               onClick={onClickCallBack}
+    />
+  )
 }
+export const UncollapsedMode = () => {
+  return (
+    <Accordion titleValue={'Users'}
+               accordionCollapsed={false}
+               setAccordionCollapsed={callBack}
+               items={users}
+               onClick={onClickCallBack}
 
-export const CollapsedMode = Template.bind({})
-CollapsedMode.args = {
-  ...propsCallback,
-  titleValue: 'Menu',
-  accordionCollapsed: true,
-}
-
-export const UncollapsedMode = Template.bind({})
-UncollapsedMode.args = {
-  ...propsCallback,
-  titleValue: 'Users',
-  accordionCollapsed: false,
+    />
+  )
 }
 
 export const ModeChanging = () => {
@@ -35,7 +44,10 @@ export const ModeChanging = () => {
   return (
     <Accordion titleValue={'Menu'}
                accordionCollapsed={collapsed}
-               setAccordionCollapsed={() => setCollapsed(!collapsed)} />
+               setAccordionCollapsed={() => setCollapsed(!collapsed)}
+               items={users}
+               onClick={onClickCallBack}
+    />
   )
 
 }

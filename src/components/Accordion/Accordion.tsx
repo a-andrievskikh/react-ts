@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { FC } from 'react'
+
+export type ItemType = {
+  title: string
+  value: any
+}
 
 export type AccordionPropsType = {
   titleValue: string
   accordionCollapsed: boolean
   setAccordionCollapsed: (accordionCollapsed: boolean) => void
+  items: ItemType[]
+  onClick: (value: any) => void
 }
 
-export const Accordion = (props: AccordionPropsType) => {
+export const Accordion: FC<AccordionPropsType> = (props) => {
 
   return (
     <div>
@@ -14,7 +21,7 @@ export const Accordion = (props: AccordionPropsType) => {
                       accordionCollapsed={props.accordionCollapsed}
                       onClick={props.setAccordionCollapsed} />
       <button onClick={() => props.setAccordionCollapsed(!props.accordionCollapsed)}>Toggle List</button>
-      {!props.accordionCollapsed && <AccordionBody />}
+      {!props.accordionCollapsed && <AccordionBody items={props.items} onClick={props.onClick} />}
     </div>
   )
 }
@@ -33,12 +40,24 @@ const AccordionTitle = (props: AccordionTitlePropsType) => {
   )
 }
 
-const AccordionBody = () => {
+export type AccordionBodyPropsType = {
+  items: ItemType[]
+  onClick: (value: any) => void
+}
+
+const AccordionBody: FC<AccordionBodyPropsType> = (props) => {
   return (
     <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
+      {props.items.map((item, i) => {
+
+        return (
+          <li key={i}
+              onClick={() => props.onClick(item.value)}
+          >
+            {item.title}
+          </li>
+        )
+      })}
     </ul>
   )
 }
