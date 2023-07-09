@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useRef, useState } from 'react'
 
-export const UncontrolledInput = () => {
+export const UncontrolledInput = React.memo(() => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [value, setValue] = useState<string>('')
 
@@ -21,4 +21,4 @@ export const UncontrolledInput = () => {
       {` actual value: ${value}`}
     </>
   )
-}
+})

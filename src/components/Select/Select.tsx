@@ -5,7 +5,7 @@ export type SelectPropsType = {
   onChange: (value: string | undefined) => void
 }
 
-export const Select: FC<SelectPropsType> = (props) => {
+export const Select: FC<SelectPropsType> = React.memo((props) => {
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     props.onChange(e.currentTarget.value)
   }
@@ -19,4 +19,4 @@ export const Select: FC<SelectPropsType> = (props) => {
       <option value="3">London</option>
     </select>
   )
-}
+})

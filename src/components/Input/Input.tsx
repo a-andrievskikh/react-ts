@@ -5,11 +5,12 @@ export type InputPropsType = {
   onChange: (value: string) => void
 }
 
-export const Input: FC<InputPropsType> = (props) => {
-  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => props.onChange(e.currentTarget.value)
-  return (
-    <input value={props.value}
-           onChange={onChangeHandler}
-    />
-  )
-}
+export const Input: FC<InputPropsType> = React.memo((props) => {
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => props.onChange(e.currentTarget.value)
+    return (
+      <input value={props.value}
+             onChange={onChangeHandler}
+      />
+    )
+  },
+)

@@ -5,7 +5,7 @@ type OnOffPropsType = {
   setOn: (on: boolean) => void
 }
 
-export const OnOff = (props: OnOffPropsType) => {
+export const OnOff = React.memo((props: OnOffPropsType) => {
 
   const buttonStyle = {
     padding: '3px',
@@ -37,4 +37,4 @@ export const OnOff = (props: OnOffPropsType) => {
       <span>controlled</span>
     </div>
   )
-}
+})

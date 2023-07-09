@@ -11,7 +11,7 @@ export type CustomSelectPropsType = {
   onClick: (value: string) => void
 }
 
-export const CustomSelect: FC<CustomSelectPropsType> = (props) => {
+export const CustomSelect: FC<CustomSelectPropsType> = React.memo((props) => {
   const [collapsed, setCollapsed] = useState<boolean>(true)
   const onClickHandler = () => setCollapsed(!collapsed)
   return (
@@ -36,4 +36,4 @@ export const CustomSelect: FC<CustomSelectPropsType> = (props) => {
       }
     </div>
   )
-}
+})

@@ -12,7 +12,7 @@ export type CustomSelectStudyPropsType = {
   cities: CityType[]
 }
 
-export const CustomSelectStudy: FC<CustomSelectStudyPropsType> = (props) => {
+export const CustomSelectStudy: FC<CustomSelectStudyPropsType> = React.memo((props) => {
   const [active, setActive] = useState<boolean>(false)
   const [hoveredElementValue, setHoveredElementValue] = useState<string>(props.value)
   const selectedCity = props.cities.find(city => city.value === props.value)
@@ -76,4 +76,4 @@ export const CustomSelectStudy: FC<CustomSelectStudyPropsType> = (props) => {
       }
     </div>
   )
-}
+})

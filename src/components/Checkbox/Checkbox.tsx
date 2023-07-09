@@ -6,8 +6,8 @@ export type CheckboxPropsTyep = {
 }
 
 
-export const Checkbox: FC<CheckboxPropsTyep> = (props) => {
+export const Checkbox: FC<CheckboxPropsTyep> = React.memo((props) => {
   return (
     <input type="checkbox" checked={props.isChecked} onChange={e => props.onChange(e.currentTarget.checked)} />
   )
-}
+})
